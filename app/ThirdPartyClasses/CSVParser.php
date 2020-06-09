@@ -26,7 +26,7 @@ class CSVParser
         foreach ($csv_array as $line) {
             $ips[] = $line[4];
         }
-        $this->ip2continent = $this->ipstack->getContinentCodesByIPs($ips);
+        // $this->ip2continent = $this->ipstack->getContinentCodesByIPs($ips);
         $parsed_csv_array = array();
         foreach ($csv_array as $line) {
             $this->parseCSV($parsed_csv_array, $line);
@@ -47,8 +47,10 @@ class CSVParser
     {
         $new_line = array();
         $new_line[] = $line[2];
-        $new_line[] = $this->ip2continent[$line[4]];
-        $new_line[] = $this->getContinentByPhone($line[3]);
+        // $new_line[] = $this->ip2continent[$line[4]];
+        $new_line[] = $line[4];
+        // $new_line[] = $this->getContinentByPhone($line[3]);
+        $new_line[] = $line[3];
         return $new_line;
     }
 

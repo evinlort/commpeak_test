@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
-
+    <script async type="text/javascript" src="{{ url('js/script.js') }}"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -70,13 +70,14 @@
     @if($data)
     @foreach($data as $customer_id => $info)
     <div>
-        <div>Customer ID:{{$customer_id}}</div>
-        <div>
-            <div>Number of all customer's calls: {{$info['total_calls']}}:</div>
-            <div>Total duration of all customer's calls: {{$info['total_calls_duration']}} seconds</div>
-            <div>Number of customer's calls within same continent: {{$info['same_continent_total_calls']}}</div>
-            <div>Total duration of customer's calls within same continent: {{$info['same_continent_calls_duration']}} seconds</div>
-        </div>
+        <div class="customer" data-id="{{ $customer_id }}">Customer ID:{{$customer_id}}</div>
+        {{-- <div>
+            <div>Number of all customer's calls: {{$info['total_calls']}}:
+    </div>
+    <div>Total duration of all customer's calls: {{$info['total_calls_duration']}} seconds</div>
+    <div>Number of customer's calls within same continent: {{$info['same_continent_total_calls']}}</div>
+    <div>Total duration of customer's calls within same continent: {{$info['same_continent_calls_duration']}} seconds</div>
+    </div> --}}
     </div>
     <hr />
     @endforeach
