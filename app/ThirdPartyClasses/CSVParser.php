@@ -10,6 +10,7 @@ class CSVParser
         $this->ip2continent = null;
         $this->ipstack = new IPStack();
         $this->phone_codes = new CountryPhoneCode();
+        $this->parsed_csv_array = array();
     }
 
     public function parse_csv_file($file)
@@ -49,8 +50,8 @@ class CSVParser
         $new_line[] = $line[2];
         // $new_line[] = $this->ip2continent[$line[4]];
         $new_line[] = $line[4];
-        // $new_line[] = $this->getContinentByPhone($line[3]);
-        $new_line[] = $line[3];
+        $new_line[] = $this->getContinentByPhone($line[3]);
+        // $new_line[] = $line[3];
         return $new_line;
     }
 

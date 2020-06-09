@@ -4,7 +4,10 @@ namespace App\ThirdPartyClasses;
 
 class CustomerCalculator
 {
-
+    public function __construct()
+    {
+        $this->ipstack = new IPStack();
+    }
     public function calculate(array $parsed)
     {
         $response = array();
@@ -24,7 +27,7 @@ class CustomerCalculator
         foreach ($datas as $param) {
             $total_calls += 1;
             $total_calls_duration += $param[0];
-            if ($param[1] == $param[2]) {
+            if ($this->ipstack->getContinentCode($param[1]) == $param[2]) {
                 $same_continent_total_calls += 1;
                 $same_continent_calls_duration += $param[0];
             }

@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <script type="text/javascript">
+        window.config = {
+            baseUrl: "{{ url('') }}",
+            csrf: "{{ csrf_token() }}"
+        }
+    </script>
     <script async type="text/javascript" src="{{ url('js/script.js') }}"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -70,7 +76,8 @@
     @if($data)
     @foreach($data as $customer_id => $info)
     <div>
-        <div class="customer" data-id="{{ $customer_id }}">Customer ID:{{$customer_id}}</div>
+        <div class="customer" data-id="{{ $customer_id }}" data-customer-data="{{ json_encode($info) }}">Customer ID:{{$customer_id}}</div>
+        <div class="sub"></div>
         {{-- <div>
             <div>Number of all customer's calls: {{$info['total_calls']}}:
     </div>

@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@index')->name('home');
 Route::post('/show', 'MainController@show')->name('show');
+Route::post('/customer_data/{id}', 'MainController@customer_data')->name('customer_data');
