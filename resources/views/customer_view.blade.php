@@ -67,13 +67,21 @@
 </head>
 
 <body>
-    <div class="flex-center position-ref full-height">
-        <form id="form" method="POST" action="{{ route('show') }}" enctype="multipart/form-data">
-            @csrf
-            <input type="file" name="csv" id="csv" accept=".csv">
-            <button type="submit">Submit</button>
-        </form>
+    @if($data)
+    @foreach($data as $customer_id => $info)
+    <div>
+        <div>Customer ID:{{$customer_id}}</div>
+        <div>
+            <div>Number of all customer's calls: {{$info['total_calls']}}:</div>
+            <div>Total duration of all customer's calls: {{$info['total_calls_duration']}} seconds</div>
+            <div>Number of customer's calls within same continent: {{$info['same_continent_total_calls']}}</div>
+            <div>Total duration of customer's calls within same continent: {{$info['same_continent_calls_duration']}} seconds</div>
+        </div>
     </div>
+    <hr />
+    @endforeach
+    @endif
+    <div><a href="{{route('home')}}">Back to main page</a></div>
 </body>
 
 </html>

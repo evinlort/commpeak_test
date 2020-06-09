@@ -14,7 +14,5 @@ class CountryPhoneCode
             $parsed_line = str_getcsv($line, "\t");
             $this->csv[$parsed_line[8]][] = $parsed_line[12];
         }
-        // TODO: Use in_array($what, $where)
-        dd($this->csv);
     }
 }

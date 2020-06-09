@@ -13,10 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-});
- */
-
-Route::get('/', 'MainController@index');
-Route::post('/', 'MainController@show')->name('show');
+Route::get('/', 'MainController@index')->name('home');
+Route::post('/show', 'MainController@show')->name('show');
