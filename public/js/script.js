@@ -17,7 +17,7 @@ const onClickEventListener = (event) => {
         let result = await fetch_data()
         result.json().then(json => {
             let html = "<div> \
-            <div>Number of all customer's calls: "+json.total_calls_duration+": \
+            <div>Number of all customer's calls: "+json.total_calls+": \
             </div> \
             <div>Total duration of all customer's calls: "+json.total_calls_duration+" seconds</div> \
             <div>Number of customer's calls within same continent: "+json.same_continent_total_calls+"</div> \
